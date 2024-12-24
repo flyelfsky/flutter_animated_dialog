@@ -1,19 +1,3 @@
-## [1.2.0]
-
-Compatible with Flutter 1.24.
-
-## [1.1.0]
-
-Fix health problems.
-
-## [1.0.3]
-
-Add axis support to size animation.
-
-## [1.0.2]
-
-Add activeColor to radio and checkbox of list item of single and multiple select dialog.
-
 ## [1.0.1]
 
 Fix bugs.

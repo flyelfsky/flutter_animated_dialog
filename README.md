@@ -1,7 +1,6 @@
 
-# flutter_animated_dialog_updated
+**This is just updated version of original package flutter_animated_dialog which isn't maintained anymore**
 
-This is just updated version of original package flutter_animated_dialog which isn't maintained anymore
 
 A new Flutter dialog with a series of beautiful animations, slide fade rotate size scale rotate3D animations.  
 Dialog barrier include status bar at the top of screen, solved the problem of default dialog.
@@ -16,11 +15,11 @@ Dialog barrier include status bar at the top of screen, solved the problem of de
 
 ```yaml  
 dependencies:  
- flutter_animated_dialog: ^1.2.0  
+ flutter_animated_dialog_updated: ^1.2.0  
 ```  
 
 ```dart  
-import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';  
+import 'package:flutter_animated_dialog_updated/flutter_animated_dialog.dart';  
 ```  
 
 ```dart  
@@ -188,6 +187,3 @@ curve                | Curve (default Curves.linear)
 duration             | Duration (default const Duration(milliseconds: 400))     
 alignment            | AlignmentGeometry (default Alignment.center)     
 
-
-## Example
-[example](https://github.com/JackJonson/flutter_animated_dialog/blob/master/example/lib/main.dart)
