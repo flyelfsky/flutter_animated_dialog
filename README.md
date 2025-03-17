@@ -15,11 +15,11 @@ Dialog barrier include status bar at the top of screen, solved the problem of de
 
 ```yaml  
 dependencies:  
- flutter_animated_dialog_updated: ^1.2.0  
+ flutter_animated_dialog: ^1.0.0  
 ```  
 
 ```dart  
-import 'package:flutter_animated_dialog_updated/flutter_animated_dialog.dart';  
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';  
 ```  
 
 ```dart  

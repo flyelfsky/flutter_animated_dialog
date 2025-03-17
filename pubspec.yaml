@@ -1,8 +1,9 @@
-name: flutter_animated_dialog_updated
+name: flutter_animated_dialog
 description: A new Flutter dialog with a series of beautiful animations, slide fade rotate size scale rotate3D animations.
-version: 1.0.1
-homepage: https://github.com/gbcoder794/flutter_animated_dialog
-email: gbcoder794@gmail.com
+version: 2.0.0
+homepage: https://github.com/flyelfsky/flutter_animated_dialog.git
+email: flyelfsky@163.com
+publish_to: http://localhost:4873/
 
 environment:
   sdk: ">=3.2.3 <4.0.0"

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_dialog_updated/flutter_animated_dialog.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +44,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Animated Dialogs"),
+        title: const Text("Animated Dialogs"),
       ),
       body: Column(
         children: [
@@ -67,10 +67,10 @@ class MyHomePage extends StatelessWidget {
                   },
                   animationType: DialogTransitionType.slideFromTopFade,
                   curve: Curves.fastOutSlowIn,
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                 );
               },
-              child: Text("Show Dialog"))
+              child: const Text("Show Dialog"))
         ],
       ),
     );

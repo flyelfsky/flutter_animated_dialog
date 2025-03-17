@@ -77,7 +77,6 @@ Future<T?> showAnimatedDialog<T>({
   Alignment alignment = Alignment.center,
   Axis? axis,
 }) {
-  assert(builder != null);
   assert(debugCheckHasMaterialLocalizations(context));
 
   final ThemeData theme = Theme.of(context);
@@ -91,9 +90,7 @@ Future<T?> showAnimatedDialog<T>({
       return SafeArea(
         top: false,
         child: Builder(builder: (BuildContext context) {
-          return theme != null
-              ? Theme(data: theme, child: pageChild)
-              : pageChild;
+          return Theme(data: theme, child: pageChild);
         }),
       );
     },
@@ -106,7 +103,6 @@ Future<T?> showAnimatedDialog<T>({
       switch (animationType) {
         case DialogTransitionType.fade:
           return FadeTransition(opacity: animation, child: child);
-          break;
         case DialogTransitionType.slideFromRight:
           return SlideTransition(
             transformHitTests: false,
@@ -116,7 +112,6 @@ Future<T?> showAnimatedDialog<T>({
             ).chain(CurveTween(curve: curve)).animate(animation),
             child: child,
           );
-          break;
         case DialogTransitionType.slideFromLeft:
           return SlideTransition(
             transformHitTests: false,
@@ -126,7 +121,6 @@ Future<T?> showAnimatedDialog<T>({
             ).chain(CurveTween(curve: curve)).animate(animation),
             child: child,
           );
-          break;
         case DialogTransitionType.slideFromRightFade:
           return SlideTransition(
             position: Tween<Offset>(
@@ -138,7 +132,6 @@ Future<T?> showAnimatedDialog<T>({
               child: child,
             ),
           );
-          break;
         case DialogTransitionType.slideFromLeftFade:
           return SlideTransition(
             position: Tween<Offset>(
@@ -150,7 +143,6 @@ Future<T?> showAnimatedDialog<T>({
               child: child,
             ),
           );
-          break;
         case DialogTransitionType.slideFromTop:
           return SlideTransition(
             transformHitTests: false,
@@ -160,7 +152,6 @@ Future<T?> showAnimatedDialog<T>({
             ).chain(CurveTween(curve: curve)).animate(animation),
             child: child,
           );
-          break;
         case DialogTransitionType.slideFromTopFade:
           return SlideTransition(
             position: Tween<Offset>(
@@ -172,7 +163,6 @@ Future<T?> showAnimatedDialog<T>({
               child: child,
             ),
           );
-          break;
         case DialogTransitionType.slideFromBottom:
           return SlideTransition(
             transformHitTests: false,
@@ -182,7 +172,6 @@ Future<T?> showAnimatedDialog<T>({
             ).chain(CurveTween(curve: curve)).animate(animation),
             child: child,
           );
-          break;
         case DialogTransitionType.slideFromBottomFade:
           return SlideTransition(
             position: Tween<Offset>(
@@ -194,7 +183,6 @@ Future<T?> showAnimatedDialog<T>({
               child: child,
             ),
           );
-          break;
         case DialogTransitionType.scale:
           return ScaleTransition(
             alignment: alignment,
@@ -208,7 +196,6 @@ Future<T?> showAnimatedDialog<T>({
             ),
             child: child,
           );
-          break;
         case DialogTransitionType.fadeScale:
           return ScaleTransition(
             alignment: alignment,
@@ -228,7 +215,6 @@ Future<T?> showAnimatedDialog<T>({
               child: child,
             ),
           );
-          break;
         case DialogTransitionType.scaleRotate:
           return ScaleTransition(
             alignment: alignment,
@@ -247,7 +233,6 @@ Future<T?> showAnimatedDialog<T>({
               child: child,
             ),
           );
-          break;
         case DialogTransitionType.rotate:
           return CustomRotationTransition(
             alignment: alignment,
@@ -255,7 +240,6 @@ Future<T?> showAnimatedDialog<T>({
                 parent: animation, curve: Interval(0.0, 1.0, curve: curve))),
             child: child,
           );
-          break;
         case DialogTransitionType.fadeRotate:
           return CustomRotationTransition(
             alignment: alignment,
@@ -269,7 +253,6 @@ Future<T?> showAnimatedDialog<T>({
               child: child,
             ),
           );
-          break;
         case DialogTransitionType.rotate3D:
           return Rotation3DTransition(
             alignment: alignment,
@@ -285,10 +268,8 @@ Future<T?> showAnimatedDialog<T>({
               child: child,
             ),
           );
-          break;
         case DialogTransitionType.size:
           return Align(
-            alignment: alignment ?? Alignment.center,
             child: SizeTransition(
               sizeFactor: CurvedAnimation(
                 parent: animation,
@@ -298,10 +279,8 @@ Future<T?> showAnimatedDialog<T>({
               child: child,
             ),
           );
-          break;
         case DialogTransitionType.sizeFade:
           return Align(
-            alignment: alignment ?? Alignment.center,
             child: SizeTransition(
               sizeFactor: CurvedAnimation(
                 parent: animation,
@@ -316,10 +295,8 @@ Future<T?> showAnimatedDialog<T>({
               ),
             ),
           );
-          break;
         case DialogTransitionType.none:
           return child;
-          break;
         default:
           return FadeTransition(opacity: animation, child: child);
       }
@@ -454,7 +431,7 @@ class CustomDialogWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterialLocalizations(context));
     final ThemeData theme = Theme.of(context);
-    final DialogThemeData dialogTheme = DialogTheme.of(context);
+    final DialogTheme dialogTheme = DialogTheme.of(context);
     final List<Widget> children = <Widget>[];
     String? label = semanticLabel;
 
@@ -491,6 +468,10 @@ class CustomDialogWidget extends StatelessWidget {
           label = semanticLabel;
           break;
         case TargetPlatform.windows:
+          label = semanticLabel ??
+              MaterialLocalizations.of(context).alertDialogLabel;
+          break;
+        case TargetPlatform.ohos:
           label = semanticLabel ??
               MaterialLocalizations.of(context).alertDialogLabel;
           break;
@@ -641,7 +622,7 @@ class CustomDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DialogThemeData dialogTheme = DialogTheme.of(context);
+    final DialogTheme dialogTheme = DialogTheme.of(context);
     return AnimatedPadding(
       padding: MediaQuery.of(context).viewInsets +
           const EdgeInsets.symmetric(horizontal: 40.0, vertical: 24.0),
