@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
+import 'package:flutter_animated_dialog_oh/flutter_animated_dialog_oh.dart';
 
 void main() {
   runApp(const MyApp());
